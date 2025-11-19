@@ -1,28 +1,34 @@
 import { MdWbSunny } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
+import { HiLocationMarker } from "react-icons/hi";
+import Searchbar from "./Searchbar";
 
 export default function Navbar() {
     return (
-        // Nav bar it has small shadow it is stick to the top z-index it 50 and background color is white 
-        <nav className="shadow-sm sticky top-0 z-50 bg-white">
-            {/*
-            The height of the nav is 80px it width is full, it's display type if flex
-            the items are justified in center and items are also center max with is 7xl padding at x is 3
-            margin at is auto
-            */}
-            <div className="h-[80px] w-full flex justify-between items-center max-w-7xl px-3 mx-auto">
-                <div className="flex justify-center items-center gap-2">
-                    <h2 className="text-gray-800 text-3xl font-semibold ">
+        <nav className="shadow-sm sticky top-0 left-0 z-50 bg-white">
+            <div className="h-[80] w-full flex justify-between items-center max-w-7xl px-3 mx-auto">
+                {/* Left side */}
+                <div className="flex items-center justify-between gap-2">
+                    <h2 className="text-3xl mt-1 text-yellow-300">
                         Weather
-                        < MdWbSunny className="text-3xl mt-1  text-yellow-300"/>
+                        <MdWbSunny className="text-3xl mt-1 text-yellow-300"/>
                     </h2>
                 </div>
+
+                {/*Icons*/}
+                <section className="flex gap-2 items-center mr-[190px] mb-3">
+                    <FaLocationCrosshairs className="text-2xl text-gray-950 hover:opacity-80 cursor-pointer"/>
+                    <HiLocationMarker className="text-2xl text-gray-950 hover:opacity-80 cursor-pointer" />
+
+                    {/*For Form later*/}
+                    <p>India</p>
+                    <div>
+                    {/*    Search box     */}
+                        <Searchbar/>
+                    </div>
+                </section>
+
             </div>
-            
-        {/*Search Bar*/}
-            <section className="flex gap-2 items-center">
-                <FaLocationCrosshairs className="text-3xl text-gray-300 hover:opacity-20  " />
-            </section>
         </nav>
     )
 }
